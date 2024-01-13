@@ -4,24 +4,43 @@ const c = canvas.getContext('2d');
 canvas.width = 1024;
 canvas.height = 576;
 
-// c.fillStyle = 'white';
-// c.fillRect(0, 0, canvas.width, canvas.height);
+class Player {
+	constructor() {
+		this.position = {
+			x:100,
+			y:100
+		}
 
-let y = 100;
-const height = 100;
-let bottom = y + 100;
+		this.width = 100;
+		this.height = 100;
+		this.sides = {
+			bottom:this.position.y + this.height;
+		}
+	}
+
+	draw() {
+		c.fillStyle = 'red';
+		c.fillRect(this.position.x, this.position.y, this.width, this.height);	
+	}
+
+	update() {
+		if (this.sides.bottom < canvas.height) {
+			this.position.y++;	
+			this.sides.bottom = this.position.y + this.height;
+		}	
+	}
+}
+
+const player = new Player();
+
 
 function animate() {
 	window.requestAnimationFrame(animate);
-	c.clearRect(0, 0, canvas.width, canvas.height);
+	c.fillStyle = 'white';
+	c.fillRect(0, 0, canvas.width, canvas.height);
 
-	c.fillStyle = 'red';
-	c.fillRect(100, y, 100, height);
-
-	if (bottom <canvas.height) {
-		y++;	
-		bottom = y + 100;
-	}	
+	player.draw();
+	player.update();
 }
 
 animate();
