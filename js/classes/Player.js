@@ -1,8 +1,6 @@
-const canvas = document.querySelector('canvas');
-const c = canvas.getContext('2d');
-
-canvas.width = 1024;
-canvas.position = {
+class Player {
+	constructor() {
+		this.position = {
 			x:100,
 			y:100
 		}
@@ -21,8 +19,8 @@ canvas.position = {
 
 	update() {
 		if (this.sides.bottom < canvas.height) {
-			this.position.y++;	
+			this.position.y++;
 			this.sides.bottom = this.position.y + this.height;
-		}	
+		}
 	}
 }
