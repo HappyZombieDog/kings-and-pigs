@@ -14,6 +14,7 @@ class Player {
 		this.width = 100;
 		this.height = 100;
 		this.sides = {
+			// this is a comment: Hello Magnus
 			bottom:this.position.y + this.height,
 		}
 	}
