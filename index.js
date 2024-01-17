@@ -14,7 +14,7 @@ class Player {
 		this.width = 100;
 		this.height = 100;
 		this.sides = {
-			bottom:this.position.y + this.height;
+			bottom:this.position.y + this.height,
 		}
 	}
 
