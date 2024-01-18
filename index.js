@@ -21,7 +21,15 @@ animate();
 window.addEventListener('keydown', (event) => {
 	switch (event.key) {
 		case 'ArrowUp':
-			player.velocity.y = -10
+			if (player.velocity.y === 0) player.velocity.y = -20;
 			break;
+		case 'ArrowLeft':
+			//move player to the left
+			player.velocity.x = -4;
+			break;
+		case 'ArrowRight':
+			//move player to he right
+			player.velocity.x = 4;
+			break;	
 	}
 })
