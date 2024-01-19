@@ -23,42 +23,14 @@ function animate() {
 	c.fillRect(0, 0, canvas.width, canvas.height);
 
 	player.velocity.x = 0;
-	if (keys.ArrowRight.pressed) {
-		player.velocity.x = 1;
-	} else if (keys.ArrowLeft.pressed) {
-		player.velocity.x = -1;
-	}
+	if (keys.ArrowRight.pressed) 
+		player.velocity.x = 5;
+	 else if (keys.ArrowLeft.pressed) 
+		player.velocity.x = -5;
+	
 	player.draw();
 	player.update();
 }
 
 animate();
 
-window.addEventListener('keydown', (event) => {
-	console.log(event.key);
-	switch (event.key) {
-		case 'ArrowUp':
-			if (player.velocity.y === 0) player.velocity.y = -20;
-			break;
-		case 'ArrowLeft':
-			//move player to the left
-			keys.ArrowLeft.pressed = true;
-			break;
-		case 'ArrowRight':
-			//move player to the right
-			keys.ArrowRight.pressed = true;
-			break;	
-	}
-})
-window.addEventListener('keyup', (event) => {
-	switch (event.key) {
-		case 'ArrowLeft':
-			//move player to the left
-			keys.ArrowLeft.pressed = false;
-			break;
-		case 'ArrowRight':
-			//move player to the right
-			keys.ArrowRight.pressed = false;
-			break;
-	}
-})
