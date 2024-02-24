@@ -4,6 +4,9 @@ const c = canvas.getContext('2d');
 canvas.width = 64 * 16; // 1024
 canvas.height = 64 * 9; // 576
 
+const parsedcollisions = collisionsLevel1.parse2D();
+const collisionBlocks = parsedcollisions.createObjectsFrom2D();
+
 const backgroundLevel1 = new Sprite({
 	position: {
 		x: 0,
@@ -29,6 +32,9 @@ function animate() {
 	window.requestAnimationFrame(animate);
 	
 	backgroundLevel1.draw();
+	collisionBlocks.forEach(collisionBlock => {
+		collisionBlock.draw();
+	})
 
 	player.velocity.x = 0;
 	if (keys.ArrowRight.pressed) 
