@@ -1,7 +1,7 @@
 window.addEventListener('keydown', (event) => {
 	switch (event.key) {
 		case 'ArrowUp':
-			if (player.velocity.y === 0) player.velocity.y = -15;
+			if (player.velocity.y === 0) player.velocity.y = -14;
 			break;
 		case 'ArrowLeft':
 			//move player to the left
