@@ -6,6 +6,7 @@ class Sprite {
         animations,
         frameBuffer = 2,
         loop = true,
+        autoplay = true,
     }) {
         this.position = position;
         this.image = new Image();
@@ -22,6 +23,7 @@ class Sprite {
         this.frameBuffer = frameBuffer;
         this.animations = animations;
         this.loop = loop;
+        this.autoplay = autoplay
 
         if (this.animations) {
             for (let key in this.animations) {
@@ -57,7 +59,12 @@ class Sprite {
       this.updateFrames();
     }
 
+    play() {
+        this.autoplay = true
+    }
+
     updateFrames() {
+        if (!this.autoplay) return
         this.elapsedFrames++;
 
         if (this.elapsedFrames % this.frameBuffer === 0) {

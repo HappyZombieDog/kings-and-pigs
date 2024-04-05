@@ -50,11 +50,14 @@ const player = new Player({
 const doors = [
  new Sprite({
  	position: {
- 		x: 0,
- 		y: 0,
+ 		x: 767,
+ 		y: 270,
  	},
  	imageSrc: './img/doorOpen.png',
  	frameRate:5,
+ 	frameBuffer: 5,
+ 	loop: false,
+ 	autoplay: false,
  }),
 ]
 
