@@ -44,6 +44,13 @@ const player = new Player({
 			loop: true,
 			imageSrc: './img/king/runLeft.png',
 		},
+		enterDoor: {
+			frameRate: 8,
+			frameBuffer: 4,
+			loop: false,
+			imageSrc: './img/king/enterDoor.png',
+		},
+
 	},
 });
 
@@ -83,21 +90,7 @@ function animate() {
 	doors.forEach(door => {
 		door.draw();
 	})
-
-	player.velocity.x = 0;
-	if (keys.ArrowRight.pressed) {
-		player.switchSprite('runRight')
-		player.velocity.x = 5;
-		player.lastDirection = 'right'
-	 } else if (keys.ArrowLeft.pressed) {
-	 	player.switchSprite('runLeft')
-	 	player.velocity.x = -5;
-	 	player.lastDirection = 'left'
-	 } else {
-	 	if (player.lastDirection === 'left') player.switchSprite('idleLeft')
-	 	else player.switchSprite('idleRight')
-	 } 
-	
+	player.handleInput(keys);
 	player.draw();
 	player.update();
 }
